@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.MultiAutoCompleteTextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, items);
         AutoCompleteTextView auto=findViewById(R.id.auto);
         auto.setAdapter(adapter);
+
+        MultiAutoCompleteTextView multi=findViewById(R.id.multi);
+        MultiAutoCompleteTextView.CommaTokenizer comma=new MultiAutoCompleteTextView.CommaTokenizer();
+        multi.setTokenizer(comma);
+        multi.setAdapter(adapter);
 
     }
 }
